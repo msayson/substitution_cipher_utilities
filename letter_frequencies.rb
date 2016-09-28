@@ -1,6 +1,15 @@
 # Utility class for analyzing message character frequencies
 class LetterFrequencies
   class << self
+    # Return percentage-based frequency of each
+    # letter in msg, sorted from highest to
+    # lowest frequency
+    def letter_frequency_percentages(msg)
+      text_length = msg.size
+      letter_frequencies(msg)
+        .map { |key, count| [key, (count.to_f / text_length * 100).round(2)] }
+    end
+
     # Return frequency of each letter in msg,
     # sorted from highest to lowest frequency
     def letter_frequencies(msg)

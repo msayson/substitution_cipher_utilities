@@ -3,6 +3,14 @@ require 'test/unit'
 
 # Unit tests for letter_frequencies
 class TestLetterFrequencies < Test::Unit::TestCase
+  def test_letter_frequency_percentages
+    expected_percentages = [
+      ['l', 30.00], ['o', 20.00], ['h', 10.00], ['e', 10.00],
+      ['w', 10.00], ['r', 10.00], ['d', 10.00]]
+    percentages = LetterFrequencies.letter_frequency_percentages('HELLOWORLD')
+    assert_equal(expected_percentages, percentages)
+  end
+
   def test_letter_frequencies
     expected_freqs = [['l', 3], ['o', 2], ['h', 1], ['e', 1],
                       ['w', 1], ['r', 1], ['d', 1]]
